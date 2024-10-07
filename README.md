@@ -54,42 +54,5 @@ payload = {
     'f': 'json'
 }
 ```
-### Various notes and "gotchas"
-- I want to caveat that this data is not necessarily revelatory. First, it's often self-evident. It's a self-fulfilling prophecy the shoe you bought for interval training is the shoe with the highest average speed for example. Second, there are a lot of qualitative data points such as "how were you feeling that day?" or "do you only use this shoe for a certain type of work out?". Where this data might be useful is in making comparisons between shoes with similar usage profiles and looking for slight performance differences over time. However, it's most likely only useful in serving as a confirmation of your training regimen and gear selection and identifying outlier performances/usage. My main goal was to spread awareness of the Strava API and potential uses for it.
-- The box plots can be read as followed: 
-  - Dotted Lines: Mean
-  - Solid Line: Median (Q2 quartile)
-  - Rectangle: Q1 - Q3 quartiles 
-  - Whiskers: Range
-- Mean (average) is a bit tricky in some places (such as speed) due to calculating "average of averages". This is why the additional data provided by the boxplot is useful, e.g., median and range.
-  - Some weighted averages could be useful for several metrics (potential roadmap item).
-- "Average Pace" is calculated by the total moving time / total miles on a shoe. 
-- The program will filter out any shoes that have less than 50 miles on them or are "retired" in the Strava UI. You can modify the code here to change this behavior:
-```
-    if model['retired']:
-        shoes_removed.append(model['model_name'])
-```
-```
-for index, row in df2.iterrows():
-    x = row['distance']
-    y = index
-    z = row['gear_id']
-    if x <= 50:
-        shoes_removed.append(z)
-```
-- The program will look up all of your shoes for all time. If you'd like to set a date range, you can modify the `activities` variable with Strava's supported date params. Example:
-```
-activities_url = "https://www.strava.com/api/v3/athlete/activities?before=1691630694&after=1690853094" 
-```
-- Strava does rate limit the amount of requests you can make to 100 requests per 15 minutes and 1000 requests per day. You can check your usage in your API application dashboard.
-- I admittedly haven't spent much time styling these charts. You may encounter ugly behavior when you reach a certain number of shoes.
-## Image Examples 
-![](imgs/total_distance_pie_chart.png)
-![](imgs/total_runs_pie_chart.png)
-![](imgs/avg_pace_scatter_plot.png)
-![](imgs/cadence_box_plot.png)
-![](imgs/distance_box_plot.png)
-![](imgs/heartrate_box_plot.png)
-![](imgs/relative_effort_box_plot.png)
-![](imgs/speed_box_plot.png)
+
 
