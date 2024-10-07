@@ -1,9 +1,8 @@
-# Strava Shoe Explorer
+# Strava Premium
 
-This is a simple Python program for reading activity data from the Strava API, grouping those activities by the gear
-used during the activity and making some simple visualizations about that gear. This program is designed to create visualizations using
-data from running activities, and it assumes the type of gear used are running shoes. I am sure it could be repurposed for any supported
-exercise and gear types, but, in its current state, that is not its scope.
+This repository is heavily inspired by https://github.com/zwinslett/strava-shoe-explore.
+
+This is a simple Python program for reading activity data from the Strava API, and using GenAI to recommend the next activities.
 
 In order to run this program, you'll need: 
 
